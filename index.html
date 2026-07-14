@@ -228,7 +228,7 @@ header:not(.scrolled) .hamburger{color:#fff;}
   content:"";position:absolute;inset:0;
   background:linear-gradient(180deg, rgba(34,10,16,.75) 0%, rgba(80,11,24,.72) 55%, rgba(122,16,36,.85) 100%);
 }
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px;margin:0 auto;}
 .hero-rating{
   display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);
   backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);
@@ -241,34 +241,11 @@ header:not(.scrolled) .hamburger{color:#fff;}
 }
 .hero h1 em{font-style:italic;font-family:var(--font-script);color:var(--secondary);font-weight:500;}
 .hero p{color:rgba(255,255,255,.86);font-size:1.12rem;max-width:520px;margin-bottom:34px;}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;}
-.hero-meta{display:flex;gap:34px;flex-wrap:wrap;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;justify-content:center;}
+.hero-meta{display:flex;gap:34px;flex-wrap:wrap;justify-content:center;}
 .hero-meta div{color:#fff;}
 .hero-meta strong{display:block;font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--secondary);}
 .hero-meta span{font-size:.82rem;color:rgba(255,255,255,.75);}
-
-.hero-visual{position:relative;height:520px;}
-.float-card{
-  position:absolute;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);
-  border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);overflow:hidden;
-  animation:floaty 6s ease-in-out infinite;
-}
-.float-card img{width:100%;height:100%;object-fit:cover;}
-.fc1{width:230px;height:290px;top:0;right:40px;animation-delay:0s;}
-.fc2{width:190px;height:190px;bottom:40px;left:0;animation-delay:1.2s;}
-.fc3{width:150px;height:150px;bottom:0;right:150px;animation-delay:2.4s;box-shadow:var(--shadow-lift);}
-@keyframes floaty{0%,100%{transform:translateY(0px);}50%{transform:translateY(-18px);}}
-
-.chef-badge{
-  position:absolute;top:20px;left:-10px;background:#fff;border-radius:50%;
-  width:120px;height:120px;display:flex;align-items:center;justify-content:center;text-align:center;
-  box-shadow:var(--shadow-lift);border:2px dashed var(--secondary);
-  animation:spin-slow 18s linear infinite;
-}
-.chef-badge span{
-  font-family:var(--font-head);font-weight:700;font-size:.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;line-height:1.3;
-}
-@keyframes spin-slow{to{transform:rotate(360deg);}}
 
 .ingredient{position:absolute;font-size:1.6rem;opacity:.85;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3));animation:drift 9s ease-in-out infinite;}
 .ing1{top:12%;left:6%;animation-delay:0s;}
@@ -283,13 +260,7 @@ header:not(.scrolled) .hamburger{color:#fff;}
 @keyframes scrolldown{to{top:100%;}}
 
 @media (max-width:960px){
-  .hero-inner{grid-template-columns:1fr;text-align:center;}
   .hero p{margin-left:auto;margin-right:auto;}
-  .hero-actions,.hero-meta{justify-content:center;}
-  .hero-visual{height:380px;margin-top:20px;}
-  .fc1{width:170px;height:210px;right:10px;}
-  .fc2{width:150px;height:150px;}
-  .fc3{display:none;}
 }
 
 /* ---------- REVEAL ---------- */
@@ -554,17 +525,17 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
 
 /* ---------- FLOATING WIDGETS ---------- */
 .whatsapp-float{
-  position:fixed;bottom:26px;left:26px;width:58px;height:58px;border-radius:50%;background:#25D366;
+  position:fixed;bottom:26px;right:26px;width:58px;height:58px;border-radius:50%;background:#25D366;
   display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;z-index:900;
   box-shadow:0 12px 26px rgba(37,211,102,.4);animation:pulse-btn 2.4s infinite;
 }
 @keyframes pulse-btn{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);}70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
 
-.sticky-actions{position:fixed;bottom:26px;right:26px;display:flex;flex-direction:column;gap:12px;z-index:900;}
+.sticky-actions{position:fixed;bottom:96px;right:26px;display:flex;flex-direction:column;gap:12px;z-index:900;}
 .sticky-actions .btn{box-shadow:var(--shadow-lift);}
 
 #back-to-top{
-  position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;
+  position:fixed;bottom:96px;right:26px;width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;
   display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:899;opacity:0;visibility:hidden;
   transform:translateY(10px);transition:all .35s var(--ease);
 }
@@ -666,12 +637,6 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="chef-badge"><span>Chef's<br>Recommended<br>Today</span></div>
-      <div class="float-card fc1"><img src="https://picsum.photos/id/312/400/500" alt="Grilled catfish plated with peppers"></div>
-      <div class="float-card fc2"><img src="https://picsum.photos/id/1080/300/300" alt="Fresh mixed fruit smoothie"></div>
-      <div class="float-card fc3"><img src="https://picsum.photos/id/1060/240/240" alt="Wrapped shawarma close up"></div>
-    </div>
   </div>
 
   <div class="scroll-cue">Scroll<div class="line"></div></div>
@@ -946,7 +911,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
         </div>
         <div class="info-card">
           <div class="info-icon">📞</div>
-          <div><h4>Phone &amp; WhatsApp</h4><p>+234 800 000 0000</p></div>
+          <div><h4>Phone &amp; WhatsApp</h4><p>0903 092 1465</p></div>
         </div>
         <div class="info-card">
           <div class="info-icon">✉️</div>
@@ -1038,7 +1003,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
 </footer>
 
 <!-- ============ FLOATING WIDGETS ============ -->
-<a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<a href="https://wa.me/2349030921465" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
 <div class="sticky-actions">
   <button id="back-to-top" aria-label="Back to top">↑</button>
 </div>
