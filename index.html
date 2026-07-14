@@ -585,7 +585,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
 
     <div class="nav-actions">
       <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      <a href="#menu" class="btn btn-outline" style="padding:10px 20px;">Order Now</a>
+      <a href="order.html" class="btn btn-outline" style="padding:10px 20px;">Order Now</a>
       <a href="#contact" class="btn btn-primary" style="padding:10px 22px;">Reserve Table</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -604,7 +604,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
   <a href="#gallery">Gallery</a>
   <a href="#testimonials">Testimonials</a>
   <a href="#contact">Contact</a>
-  <a href="#menu" class="btn btn-primary">Order Now</a>
+  <a href="order.html" class="btn btn-primary">Order Now</a>
   <a href="#contact" class="btn btn-outline">Reserve Table</a>
 </nav>
 
@@ -627,7 +627,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
       <h1>Every Meal<br><em>Tells A Story.</em></h1>
       <p id="hero-typed">Experience premium Nigerian cuisine, delicious shawarma, hearty breakfasts, fresh juices, and unforgettable dining moments.<span class="typing-cursor"></span></p>
       <div class="hero-actions">
-        <a href="#menu" class="btn btn-primary">Order Online</a>
+        <a href="order.html" class="btn btn-primary">Order Online</a>
         <a href="#menu" class="btn btn-light">View Menu</a>
       </div>
       <div class="hero-meta">
@@ -814,7 +814,7 @@ footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
         <h3>Village Rice &amp; Grilled Catfish</h3>
         <p>Smoky village rice slow-cooked over an open flame, paired with peppered catfish and a citrus-chili relish — the dish our regulars keep coming back for.</p>
         <div class="chef-price">₦6,500</div>
-        <a href="#contact" class="btn btn-primary" style="align-self:flex-start;">Order This Dish</a>
+        <a href="order.html?add=chef-village-catfish" class="btn btn-primary" style="align-self:flex-start;">Order This Dish</a>
       </div>
     </div>
   </div>
@@ -1105,18 +1105,18 @@ document.querySelectorAll('.reveal, .reveal-scale').forEach(el=>revealObserver.o
    MENU DATA + RENDER + FILTER
    ============================================ */
 const dishes = [
-  {name:"Sunrise Breakfast Plate", cat:"breakfast", chapter:"Ch. 01", desc:"Eggs, plantain, sausage & toast.", price:"₦2,500", img:"https://picsum.photos/id/225/400/300"},
-  {name:"Chicken Shawarma Wrap", cat:"lunch", chapter:"Ch. 02", desc:"Grilled chicken, garlic sauce & fresh veg.", price:"₦3,000", img:"https://picsum.photos/id/1080/400/300"},
-  {name:"Classic Party Jollof", cat:"lunch", chapter:"Ch. 03", desc:"Smoky jollof rice with fried plantain.", price:"₦3,500", img:"https://picsum.photos/id/292/400/300"},
-  {name:"Village Rice Special", cat:"dinner", chapter:"Ch. 04", desc:"Slow-cooked rice, native spices & fish.", price:"₦4,000", img:"https://picsum.photos/id/312/400/300"},
-  {name:"Signature Fried Rice", cat:"lunch", chapter:"Ch. 05", desc:"Vegetable-loaded fried rice, chef's blend.", price:"₦3,200", img:"https://picsum.photos/id/365/400/300"},
-  {name:"Fire-Grilled Chicken", cat:"grills", chapter:"Ch. 06", desc:"Charcoal grilled chicken, pepper glaze.", price:"₦4,500", img:"https://picsum.photos/id/1080/400/301"},
-  {name:"Peppered Turkey", cat:"grills", chapter:"Ch. 07", desc:"Juicy turkey in a smoky pepper sauce.", price:"₦5,000", img:"https://picsum.photos/id/1069/400/300"},
-  {name:"Grilled Catfish", cat:"grills", chapter:"Ch. 08", desc:"Whole catfish, citrus-chili relish.", price:"₦6,000", img:"https://picsum.photos/id/312/400/301"},
-  {name:"Tropical Smoothie", cat:"drinks", chapter:"Ch. 09", desc:"Mango, pineapple & passionfruit blend.", price:"₦1,800", img:"https://picsum.photos/id/1060/400/300"},
-  {name:"Fresh Watermelon Juice", cat:"drinks", chapter:"Ch. 10", desc:"Chilled, freshly pressed watermelon.", price:"₦1,500", img:"https://picsum.photos/id/431/400/300"},
-  {name:"Weekend Grill Platter", cat:"specials", chapter:"Ch. 11", desc:"Assorted grilled meats to share.", price:"₦8,000", img:"https://picsum.photos/id/225/400/301"},
-  {name:"Family Feast Combo", cat:"specials", chapter:"Ch. 12", desc:"Jollof, chicken, salad & drinks for 4.", price:"₦12,000", img:"https://picsum.photos/id/292/400/301"},
+  {id:"breakfast-plate", name:"Sunrise Breakfast Plate", cat:"breakfast", chapter:"Ch. 01", desc:"Eggs, plantain, sausage & toast.", price:"₦2,500", img:"https://picsum.photos/id/225/400/300"},
+  {id:"shawarma-wrap", name:"Chicken Shawarma Wrap", cat:"lunch", chapter:"Ch. 02", desc:"Grilled chicken, garlic sauce & fresh veg.", price:"₦3,000", img:"https://picsum.photos/id/1080/400/300"},
+  {id:"party-jollof", name:"Classic Party Jollof", cat:"lunch", chapter:"Ch. 03", desc:"Smoky jollof rice with fried plantain.", price:"₦3,500", img:"https://picsum.photos/id/292/400/300"},
+  {id:"village-rice", name:"Village Rice Special", cat:"dinner", chapter:"Ch. 04", desc:"Slow-cooked rice, native spices & fish.", price:"₦4,000", img:"https://picsum.photos/id/312/400/300"},
+  {id:"fried-rice", name:"Signature Fried Rice", cat:"lunch", chapter:"Ch. 05", desc:"Vegetable-loaded fried rice, chef's blend.", price:"₦3,200", img:"https://picsum.photos/id/365/400/300"},
+  {id:"grilled-chicken", name:"Fire-Grilled Chicken", cat:"grills", chapter:"Ch. 06", desc:"Charcoal grilled chicken, pepper glaze.", price:"₦4,500", img:"https://picsum.photos/id/1080/400/301"},
+  {id:"peppered-turkey", name:"Peppered Turkey", cat:"grills", chapter:"Ch. 07", desc:"Juicy turkey in a smoky pepper sauce.", price:"₦5,000", img:"https://picsum.photos/id/1069/400/300"},
+  {id:"grilled-catfish", name:"Grilled Catfish", cat:"grills", chapter:"Ch. 08", desc:"Whole catfish, citrus-chili relish.", price:"₦6,000", img:"https://picsum.photos/id/312/400/301"},
+  {id:"tropical-smoothie", name:"Tropical Smoothie", cat:"drinks", chapter:"Ch. 09", desc:"Mango, pineapple & passionfruit blend.", price:"₦1,800", img:"https://picsum.photos/id/1060/400/300"},
+  {id:"watermelon-juice", name:"Fresh Watermelon Juice", cat:"drinks", chapter:"Ch. 10", desc:"Chilled, freshly pressed watermelon.", price:"₦1,500", img:"https://picsum.photos/id/431/400/300"},
+  {id:"weekend-grill", name:"Weekend Grill Platter", cat:"specials", chapter:"Ch. 11", desc:"Assorted grilled meats to share.", price:"₦8,000", img:"https://picsum.photos/id/225/400/301"},
+  {id:"family-feast", name:"Family Feast Combo", cat:"specials", chapter:"Ch. 12", desc:"Jollof, chicken, salad & drinks for 4.", price:"₦12,000", img:"https://picsum.photos/id/292/400/301"},
 ];
 
 const menuGrid = document.getElementById('menu-grid');
@@ -1132,7 +1132,7 @@ menuGrid.innerHTML = dishes.map((d,i)=>`
       <p>${d.desc}</p>
       <div class="dish-foot">
         <span class="dish-price">${d.price}</span>
-        <a href="#contact" class="dish-order">Order</a>
+        <a href="order.html?add=${d.id}" class="dish-order">Order</a>
       </div>
     </div>
   </div>
