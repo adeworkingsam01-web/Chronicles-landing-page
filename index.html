@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chronicles Restaurant — Every Meal Tells A Story</title>
+<meta name="description" content="Chronicles Restaurant serves premium Nigerian cuisine, shawarma, jollof rice, grills, breakfast and fresh juices. Dine-in, takeaway, delivery and corporate catering with authentic Nigerian hospitality.">
+<meta name="keywords" content="Chronicles Restaurant, Nigerian food, jollof rice, shawarma, catering, restaurant near me">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Chronicles Restaurant — Every Meal Tells A Story">
+<meta property="og:description" content="Premium Nigerian cuisine, shawarma, breakfast and fresh juices. Order online or reserve a table.">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:image" content="https://picsum.photos/id/292/1200/630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chronicles Restaurant — Every Meal Tells A Story">
+<meta name="twitter:description" content="Premium Nigerian cuisine, shawarma, breakfast and fresh juices. Order online or reserve a table.">
+<meta name="twitter:image" content="https://picsum.photos/id/292/1200/630">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Chronicles Restaurant",
+  "servesCuisine": ["Nigerian", "African", "Grill", "Shawarma"],
+  "priceRange": "$$",
+  "acceptsReservations": "True",
+  "hasMenu": "https://example.com/menu",
+  "telephone": "+234-800-000-0000",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2500"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   CHRONICLES RESTAURANT — DESIGN TOKENS
+   Signature concept: "The Chronicle" — every dish is
+   a numbered chapter in the restaurant's story. Cards
+   carry a torn-ledger top edge and a wax-seal stamp
+   motif borrowed from Nigerian celebration invitations.
+   ============================================ */
+:root{
+  --primary:#7A1024;
+  --primary-dark:#500b18;
+  --primary-light:#9c2c40;
+  --secondary:#F6B300;
+  --accent:#FF7A00;
+  --dark:#222222;
+  --bg:#FFFFFF;
+  --section-bg:#F8F8F8;
+  --paper:#FBF6EC;
+  --text-muted:#6b6663;
+  --radius-lg:22px;
+  --radius-md:14px;
+  --radius-sm:8px;
+  --shadow-soft:0 10px 30px rgba(122,16,36,0.08);
+  --shadow-lift:0 24px 48px rgba(122,16,36,0.18);
+  --ease:cubic-bezier(.22,1,.36,1);
+  --font-head:'Poppins', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-script:'Cormorant Garamond', serif;
+}
+
+[data-theme="dark"]{
+  --bg:#161213;
+  --section-bg:#1d1718;
+  --paper:#211a1b;
+  --dark:#f5efe9;
+  --text-muted:#c9bfba;
+  --shadow-soft:0 10px 30px rgba(0,0,0,0.4);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+}
+body{
+  font-family:var(--font-body);
+  color:var(--dark);
+  background:var(--bg);
+  line-height:1.6;
+  overflow-x:hidden;
+  transition:background .4s var(--ease), color .4s var(--ease);
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{list-style:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+section{position:relative;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px;}
+
+.eyebrow{
+  font-family:var(--font-script);
+  font-style:italic;
+  font-size:1.15rem;
+  color:var(--primary);
+  letter-spacing:.03em;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+[data-theme="dark"] .eyebrow{color:var(--secondary);}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--secondary);display:inline-block;}
+.section-title{font-size:clamp(1.9rem,3.6vw,3rem);font-weight:800;margin-bottom:14px;}
+.section-sub{color:var(--text-muted);max-width:600px;font-size:1.03rem;}
+.section-head{margin-bottom:48px;}
+.section-head.center{text-align:center;margin-left:auto;margin-right:auto;}
+.section-head.center .section-sub{margin-left:auto;margin-right:auto;}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 30px;border-radius:100px;font-weight:600;font-size:.95rem;
+  font-family:var(--font-body);position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease);
+  white-space:nowrap;
+}
+.btn:active{transform:scale(.96);}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--primary));color:#fff;box-shadow:0 12px 24px rgba(255,122,0,.28);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(255,122,0,.4);}
+.btn-outline{border:1.5px solid var(--primary);color:var(--primary);background:transparent;}
+[data-theme="dark"] .btn-outline{color:var(--secondary);border-color:var(--secondary);}
+.btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-3px);}
+[data-theme="dark"] .btn-outline:hover{background:var(--secondary);color:var(--dark);}
+.btn-light{background:#fff;color:var(--primary);}
+.btn-light:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.2);}
+.btn .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);transform:scale(0);animation:ripple .6s var(--ease);pointer-events:none;}
+@keyframes ripple{to{transform:scale(3);opacity:0;}}
+
+/* ---------- PRELOADER ---------- */
+#preloader{
+  position:fixed;inset:0;z-index:9999;background:var(--primary);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;
+  transition:opacity .7s var(--ease), visibility .7s var(--ease);
+}
+#preloader.hide{opacity:0;visibility:hidden;}
+.preload-mark{
+  width:96px;height:96px;border-radius:50%;
+  border:2px solid rgba(246,179,0,.35);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.preload-mark::before{
+  content:"";position:absolute;inset:-2px;border-radius:50%;
+  border:2px solid transparent;border-top-color:var(--secondary);border-right-color:var(--secondary);
+  animation:spin 1.1s linear infinite;
+}
+.preload-mark span{font-family:var(--font-head);font-weight:800;font-size:1.9rem;color:var(--secondary);letter-spacing:1px;}
+.preload-text{color:#f6e9c9;font-family:var(--font-script);font-style:italic;font-size:1.1rem;letter-spacing:.04em;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+/* ---------- SCROLL PROGRESS ---------- */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--secondary),var(--accent));z-index:2100;transition:width .1s linear;}
+
+/* ---------- NAVBAR ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:22px 0;transition:padding .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
+}
+header.scrolled{padding:12px 0;background:rgba(255,255,255,.85);backdrop-filter:blur(14px) saturate(160%);box-shadow:0 8px 30px rgba(0,0,0,.08);}
+[data-theme="dark"] header.scrolled{background:rgba(22,18,19,.85);}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--primary);}
+header.scrolled .logo, header:not(.scrolled) .logo{color:var(--primary);}
+[data-theme="dark"] .logo{color:var(--secondary);}
+.logo-mark{
+  width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));
+  color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;box-shadow:var(--shadow-soft);
+  flex-shrink:0;
+}
+.logo small{display:block;font-family:var(--font-script);font-style:italic;font-weight:400;font-size:.72rem;color:var(--text-muted);letter-spacing:.05em;}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{font-weight:600;font-size:.92rem;position:relative;padding:4px 0;color:var(--dark);}
+header:not(.scrolled) .nav-links a{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.35);}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--secondary);transition:width .3s var(--ease);}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:12px;}
+#theme-toggle{
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(122,16,36,.25);font-size:1.1rem;transition:transform .3s var(--ease), background .3s;
+}
+header:not(.scrolled) #theme-toggle{border-color:rgba(255,255,255,.5);color:#fff;}
+#theme-toggle:hover{transform:rotate(20deg);}
+.hamburger{display:none;width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;flex-direction:column;gap:5px;}
+.hamburger span{width:22px;height:2px;background:currentColor;border-radius:2px;transition:all .3s var(--ease);}
+header:not(.scrolled) .hamburger{color:#fff;}
+
+.mobile-menu{
+  position:fixed;inset:0 0 0 auto;width:min(320px,84vw);height:100vh;background:var(--bg);
+  z-index:1500;transform:translateX(100%);transition:transform .45s var(--ease);
+  padding:100px 30px 30px;display:flex;flex-direction:column;gap:26px;box-shadow:-10px 0 40px rgba(0,0,0,.2);
+}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{font-size:1.15rem;font-weight:600;font-family:var(--font-head);}
+.mobile-menu .btn{width:100%;}
+.menu-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1400;opacity:0;visibility:hidden;transition:opacity .4s var(--ease), visibility .4s var(--ease);}
+.menu-backdrop.open{opacity:1;visibility:visible;}
+.mm-close{align-self:flex-end;font-size:1.6rem;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  padding:140px 0 100px;
+}
+.hero-bg{position:absolute;inset:0;z-index:0;}
+.hero-bg img{width:100%;height:100%;object-fit:cover;}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(34,10,16,.75) 0%, rgba(80,11,24,.72) 55%, rgba(122,16,36,.85) 100%);
+}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;}
+.hero-rating{
+  display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25);
+  padding:9px 18px;border-radius:100px;color:#fff;font-size:.85rem;font-weight:600;margin-bottom:22px;
+}
+.hero-rating .stars{color:var(--secondary);letter-spacing:1px;}
+.hero h1{
+  color:#fff;font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:900;line-height:1.05;margin-bottom:22px;
+  text-wrap:balance;
+}
+.hero h1 em{font-style:italic;font-family:var(--font-script);color:var(--secondary);font-weight:500;}
+.hero p{color:rgba(255,255,255,.86);font-size:1.12rem;max-width:520px;margin-bottom:34px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;}
+.hero-meta{display:flex;gap:34px;flex-wrap:wrap;}
+.hero-meta div{color:#fff;}
+.hero-meta strong{display:block;font-family:var(--font-head);font-size:1.5rem;font-weight:800;color:var(--secondary);}
+.hero-meta span{font-size:.82rem;color:rgba(255,255,255,.75);}
+
+.hero-visual{position:relative;height:520px;}
+.float-card{
+  position:absolute;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);
+  border-radius:var(--radius-lg);box-shadow:var(--shadow-lift);overflow:hidden;
+  animation:floaty 6s ease-in-out infinite;
+}
+.float-card img{width:100%;height:100%;object-fit:cover;}
+.fc1{width:230px;height:290px;top:0;right:40px;animation-delay:0s;}
+.fc2{width:190px;height:190px;bottom:40px;left:0;animation-delay:1.2s;}
+.fc3{width:150px;height:150px;bottom:0;right:150px;animation-delay:2.4s;box-shadow:var(--shadow-lift);}
+@keyframes floaty{0%,100%{transform:translateY(0px);}50%{transform:translateY(-18px);}}
+
+.chef-badge{
+  position:absolute;top:20px;left:-10px;background:#fff;border-radius:50%;
+  width:120px;height:120px;display:flex;align-items:center;justify-content:center;text-align:center;
+  box-shadow:var(--shadow-lift);border:2px dashed var(--secondary);
+  animation:spin-slow 18s linear infinite;
+}
+.chef-badge span{
+  font-family:var(--font-head);font-weight:700;font-size:.68rem;color:var(--primary);text-transform:uppercase;letter-spacing:.06em;line-height:1.3;
+}
+@keyframes spin-slow{to{transform:rotate(360deg);}}
+
+.ingredient{position:absolute;font-size:1.6rem;opacity:.85;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3));animation:drift 9s ease-in-out infinite;}
+.ing1{top:12%;left:6%;animation-delay:0s;}
+.ing2{top:70%;left:14%;animation-delay:2s;font-size:1.3rem;}
+.ing3{top:22%;right:4%;animation-delay:4s;}
+.ing4{bottom:14%;right:8%;animation-delay:1s;font-size:1.2rem;}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-24px) rotate(8deg);}}
+
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:#fff;text-align:center;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;opacity:.8;}
+.scroll-cue .line{width:1px;height:34px;background:rgba(255,255,255,.6);margin:10px auto 0;position:relative;overflow:hidden;}
+.scroll-cue .line::after{content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--secondary);animation:scrolldown 1.8s ease-in-out infinite;}
+@keyframes scrolldown{to{top:100%;}}
+
+@media (max-width:960px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero p{margin-left:auto;margin-right:auto;}
+  .hero-actions,.hero-meta{justify-content:center;}
+  .hero-visual{height:380px;margin-top:20px;}
+  .fc1{width:170px;height:210px;right:10px;}
+  .fc2{width:150px;height:150px;}
+  .fc3{display:none;}
+}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-scale{opacity:0;transform:scale(.9);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+.reveal-scale.in{opacity:1;transform:scale(1);}
+
+/* ---------- WHY CHOOSE ---------- */
+.why{padding:110px 0;background:var(--section-bg);}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;}
+.why-card{
+  background:var(--bg);border-radius:var(--radius-lg);padding:36px 26px;text-align:center;
+  box-shadow:var(--shadow-soft);position:relative;transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+  border:1px solid transparent;
+}
+.why-card::before{
+  content:"";position:absolute;inset:0;border-radius:var(--radius-lg);padding:1.5px;
+  background:linear-gradient(135deg,var(--secondary),var(--accent));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .4s var(--ease);
+}
+.why-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lift);}
+.why-card:hover::before{opacity:1;}
+.why-icon{
+  width:66px;height:66px;border-radius:18px;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--primary),var(--accent));font-size:1.6rem;color:#fff;
+  transition:transform .4s var(--ease);
+}
+.why-card:hover .why-icon{transform:rotate(-8deg) scale(1.08);}
+.why-card h3{font-size:1.12rem;margin-bottom:8px;}
+.why-card p{color:var(--text-muted);font-size:.9rem;}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
+
+/* ---------- MENU ---------- */
+.menu{padding:110px 0;}
+.filter-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;}
+.filter-btn{
+  padding:10px 22px;border-radius:100px;border:1.5px solid rgba(122,16,36,.2);font-weight:600;font-size:.86rem;
+  transition:all .3s var(--ease);
+}
+.filter-btn.active,.filter-btn:hover{background:var(--primary);color:#fff;border-color:var(--primary);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:28px;}
+.dish-card{
+  background:var(--bg);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);
+  transition:transform .45s var(--ease), box-shadow .45s var(--ease);position:relative;
+  display:flex;flex-direction:column;
+}
+.dish-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lift);}
+.dish-media{position:relative;height:200px;overflow:hidden;}
+.dish-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.dish-card:hover .dish-media img{transform:scale(1.1);}
+.dish-chapter{
+  position:absolute;top:14px;left:14px;background:rgba(34,10,16,.55);backdrop-filter:blur(4px);color:#f6e9c9;
+  font-family:var(--font-script);font-style:italic;font-size:.78rem;padding:4px 12px;border-radius:100px;
+}
+.fav-icon{
+  position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.9);
+  display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:var(--primary);
+  transition:transform .3s var(--ease), color .3s;
+}
+.fav-icon:hover{transform:scale(1.15);}
+.fav-icon.active{color:var(--accent);}
+.dish-body{padding:20px 22px 22px;flex:1;display:flex;flex-direction:column;}
+.dish-body h3{font-size:1.08rem;margin-bottom:6px;}
+.dish-body p{color:var(--text-muted);font-size:.86rem;flex:1;margin-bottom:16px;}
+.dish-foot{display:flex;align-items:center;justify-content:space-between;}
+.dish-price{font-family:var(--font-head);font-weight:800;color:var(--primary);font-size:1.05rem;}
+[data-theme="dark"] .dish-price{color:var(--secondary);}
+.dish-order{
+  padding:8px 18px;border-radius:100px;background:linear-gradient(135deg,var(--accent),var(--primary));color:#fff;
+  font-size:.8rem;font-weight:700;transition:transform .3s var(--ease);
+}
+.dish-order:hover{transform:scale(1.06);}
+.dish-card.hidden-cat{display:none;}
+
+/* ---------- SPECIALS ---------- */
+.specials{padding:110px 0;background:var(--section-bg);}
+.specials-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.special-card{
+  position:relative;border-radius:var(--radius-lg);overflow:hidden;color:#fff;min-height:340px;
+  display:flex;flex-direction:column;justify-content:flex-end;padding:26px;box-shadow:var(--shadow-soft);
+  transition:transform .4s var(--ease);
+}
+.special-card:hover{transform:translateY(-8px);}
+.special-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.special-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(20,6,10,.92) 95%);z-index:1;}
+.special-content{position:relative;z-index:2;}
+.discount-badge{
+  position:absolute;top:16px;right:-38px;z-index:3;background:var(--secondary);color:var(--dark);
+  font-weight:800;font-size:.72rem;padding:6px 44px;transform:rotate(35deg);box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+.special-content h3{font-size:1.2rem;margin-bottom:8px;}
+.special-content p{font-size:.82rem;color:rgba(255,255,255,.8);margin-bottom:14px;}
+.countdown{display:flex;gap:8px;margin-bottom:14px;}
+.countdown div{background:rgba(255,255,255,.14);border-radius:8px;padding:6px 9px;text-align:center;min-width:44px;}
+.countdown span{display:block;font-family:var(--font-head);font-weight:800;font-size:1rem;}
+.countdown small{font-size:.6rem;text-transform:uppercase;letter-spacing:.05em;opacity:.75;}
+@media (max-width:960px){.specials-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.specials-grid{grid-template-columns:1fr;}}
+
+/* ---------- ABOUT ---------- */
+.about{padding:110px 0;}
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:60px;align-items:center;}
+.about-media{position:relative;}
+.about-media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);width:100%;height:460px;object-fit:cover;}
+.about-stamp{
+  position:absolute;bottom:-26px;left:-26px;background:var(--primary);color:#fff;border-radius:50%;
+  width:110px;height:110px;display:flex;align-items:center;justify-content:center;text-align:center;
+  box-shadow:var(--shadow-lift);
+}
+.about-stamp span{font-family:var(--font-script);font-style:italic;font-size:.9rem;line-height:1.25;}
+.about p{color:var(--text-muted);margin-bottom:18px;}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px;}
+.about-points li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.92rem;}
+.about-points li::before{content:"✓";width:24px;height:24px;border-radius:50%;background:var(--secondary);color:var(--dark);display:flex;align-items:center;justify-content:center;font-size:.72rem;flex-shrink:0;}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;}.about-media img{height:320px;}.about-stamp{display:none;}}
+
+/* ---------- STATS ---------- */
+.stats{padding:80px 0;background:linear-gradient(120deg,var(--primary),var(--primary-dark));position:relative;overflow:hidden;}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%, rgba(246,179,0,.18), transparent 60%);}
+.stats-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:var(--secondary);font-family:var(--font-head);}
+.stat p{color:rgba(255,255,255,.85);font-size:.88rem;margin-top:6px;letter-spacing:.02em;}
+@media (max-width:700px){.stats-grid{grid-template-columns:1fr 1fr;row-gap:36px;}}
+
+/* ---------- PROCESS ---------- */
+.process{padding:110px 0;}
+.process-track{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative;}
+.process-track::before{content:"";position:absolute;top:34px;left:0;right:0;height:2px;background:repeating-linear-gradient(90deg,var(--secondary) 0 10px, transparent 10px 20px);z-index:0;}
+.step{position:relative;z-index:1;text-align:center;}
+.step-num{
+  width:68px;height:68px;border-radius:50%;background:var(--bg);border:2px solid var(--secondary);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--font-head);
+  font-weight:800;color:var(--primary);font-size:1.3rem;box-shadow:var(--shadow-soft);transition:transform .4s var(--ease);
+}
+.step:hover .step-num{transform:scale(1.1) rotate(-6deg);background:var(--primary);color:#fff;}
+.step h4{font-size:1.02rem;margin-bottom:6px;}
+.step p{font-size:.85rem;color:var(--text-muted);}
+@media (max-width:800px){.process-track{grid-template-columns:1fr 1fr;row-gap:40px;}.process-track::before{display:none;}}
+
+/* ---------- CHEF RECOMMENDATION ---------- */
+.chef-rec{padding:0 0 110px;}
+.chef-card{
+  background:linear-gradient(120deg,var(--paper),var(--section-bg));border-radius:28px;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;box-shadow:var(--shadow-lift);position:relative;
+}
+.chef-card-img{position:relative;height:100%;min-height:360px;}
+.chef-card-img img{width:100%;height:100%;object-fit:cover;}
+.chef-ribbon{
+  position:absolute;top:22px;left:22px;background:var(--secondary);color:var(--dark);font-weight:800;
+  font-size:.75rem;padding:8px 18px;border-radius:100px;box-shadow:0 6px 14px rgba(0,0,0,.2);
+}
+.chef-card-body{padding:52px;display:flex;flex-direction:column;justify-content:center;}
+.chef-card-body .eyebrow{margin-bottom:14px;}
+.chef-card-body h3{font-size:2rem;margin-bottom:14px;}
+.chef-card-body p{color:var(--text-muted);margin-bottom:24px;}
+.chef-price{font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:var(--primary);margin-bottom:24px;}
+[data-theme="dark"] .chef-price{color:var(--secondary);}
+@media (max-width:860px){.chef-card{grid-template-columns:1fr;}.chef-card-body{padding:34px;}}
+
+/* ---------- GALLERY ---------- */
+.gallery{padding:110px 0;background:var(--section-bg);}
+.masonry{columns:4 220px;column-gap:18px;}
+.masonry-item{break-inside:avoid;margin-bottom:18px;border-radius:var(--radius-md);overflow:hidden;position:relative;cursor:pointer;}
+.masonry-item img{width:100%;display:block;transition:transform .5s var(--ease);}
+.masonry-item:hover img{transform:scale(1.08);}
+.masonry-item::after{content:"⤢";position:absolute;inset:0;background:rgba(34,10,16,.4);color:#fff;font-size:1.4rem;
+  display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s var(--ease);}
+.masonry-item:hover::after{opacity:1;}
+@media (max-width:700px){.masonry{columns:2 160px;}}
+
+#lightbox{position:fixed;inset:0;background:rgba(10,4,6,.92);z-index:3000;display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:opacity .35s var(--ease), visibility .35s var(--ease);padding:30px;}
+#lightbox.open{opacity:1;visibility:visible;}
+#lightbox img{max-width:min(900px,90vw);max-height:82vh;border-radius:14px;box-shadow:0 30px 60px rgba(0,0,0,.5);}
+.lb-close{position:absolute;top:26px;right:32px;color:#fff;font-size:2rem;}
+
+/* ---------- TESTIMONIALS ---------- */
+.testimonials{padding:110px 0;}
+.t-track-wrap{overflow:hidden;position:relative;}
+.t-track{display:flex;transition:transform .6s var(--ease);}
+.t-slide{min-width:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:4px;}
+.t-card{background:var(--bg);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-soft);}
+.t-card .stars{color:var(--secondary);margin-bottom:14px;letter-spacing:2px;}
+.t-card p{color:var(--text-muted);font-size:.94rem;margin-bottom:22px;font-style:italic;}
+.t-person{display:flex;align-items:center;gap:12px;}
+.t-person img{width:46px;height:46px;border-radius:50%;object-fit:cover;}
+.t-person strong{display:block;font-size:.92rem;}
+.t-person span{font-size:.78rem;color:var(--text-muted);}
+.t-dots{display:flex;justify-content:center;gap:10px;margin-top:34px;}
+.t-dots button{width:10px;height:10px;border-radius:50%;background:rgba(122,16,36,.25);transition:all .3s var(--ease);}
+.t-dots button.active{background:var(--primary);width:26px;border-radius:6px;}
+@media (max-width:900px){.t-slide{grid-template-columns:1fr;}}
+
+/* ---------- FAQ ---------- */
+.faq{padding:110px 0;background:var(--section-bg);}
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{background:var(--bg);border-radius:var(--radius-md);margin-bottom:14px;box-shadow:var(--shadow-soft);overflow:hidden;}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 24px;font-weight:600;font-family:var(--font-head);font-size:.98rem;text-align:left;}
+.faq-q .plus{font-size:1.3rem;transition:transform .35s var(--ease);color:var(--primary);}
+[data-theme="dark"] .faq-q .plus{color:var(--secondary);}
+.faq-item.open .plus{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
+.faq-a p{padding:0 24px 20px;color:var(--text-muted);font-size:.9rem;}
+
+/* ---------- CONTACT ---------- */
+.contact{padding:110px 0;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+.contact-form{background:var(--section-bg);border-radius:var(--radius-lg);padding:40px;box-shadow:var(--shadow-soft);}
+.field{margin-bottom:18px;}
+.field label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;}
+.field input,.field textarea{
+  width:100%;padding:13px 16px;border-radius:10px;border:1.5px solid rgba(122,16,36,.18);background:var(--bg);
+  color:var(--dark);font-family:var(--font-body);font-size:.92rem;transition:border-color .3s;
+}
+.field input:focus,.field textarea:focus{border-color:var(--primary);}
+.contact-info{display:flex;flex-direction:column;gap:22px;}
+.info-card{display:flex;gap:16px;align-items:flex-start;background:var(--section-bg);padding:20px;border-radius:var(--radius-md);}
+.info-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.info-card h4{font-size:.95rem;margin-bottom:4px;}
+.info-card p{font-size:.86rem;color:var(--text-muted);}
+.map-embed{border-radius:var(--radius-md);overflow:hidden;height:180px;background:linear-gradient(135deg,#e5ddce,#cfc4ae);display:flex;align-items:center;justify-content:center;color:#8a7f68;font-size:.85rem;font-weight:600;}
+.social-row{display:flex;gap:12px;}
+.social-row a{width:42px;height:42px;border-radius:50%;background:var(--section-bg);display:flex;align-items:center;justify-content:center;transition:all .3s var(--ease);}
+.social-row a:hover{background:var(--primary);color:#fff;transform:translateY(-4px);}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+
+/* ---------- NEWSLETTER ---------- */
+.newsletter{padding:80px 0;background:linear-gradient(120deg,var(--accent),var(--primary));text-align:center;position:relative;overflow:hidden;}
+.newsletter::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 30%,rgba(255,255,255,.15),transparent 55%);}
+.newsletter h2{color:#fff;font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:10px;position:relative;}
+.newsletter p{color:rgba(255,255,255,.85);margin-bottom:28px;position:relative;}
+.news-form{display:flex;justify-content:center;gap:12px;max-width:460px;margin:0 auto;position:relative;flex-wrap:wrap;}
+.news-form input{flex:1;min-width:220px;padding:15px 20px;border-radius:100px;border:none;font-size:.92rem;}
+
+/* ---------- INSTAGRAM ---------- */
+.insta{padding:100px 0;}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+.insta-item{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;}
+.insta-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+.insta-item:hover img{transform:scale(1.12);}
+.insta-item::after{content:"📷";position:absolute;inset:0;background:rgba(122,16,36,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;opacity:0;transition:opacity .3s var(--ease);}
+.insta-item:hover::after{opacity:1;}
+@media (max-width:900px){.insta-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--dark);color:#e8e2dc;padding:80px 0 26px;}
+[data-theme="dark"] footer{background:#0f0c0d;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:50px;}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:14px;}
+.footer-col h4{color:#fff;font-size:.95rem;margin-bottom:18px;}
+.footer-col ul li{margin-bottom:10px;}
+.footer-col ul a{color:#c9c1ba;font-size:.88rem;transition:color .3s;}
+.footer-col ul a:hover{color:var(--secondary);}
+.footer-col p{color:#a89f97;font-size:.85rem;margin-bottom:16px;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.8rem;color:#a89f97;}
+.footer-bottom a{color:#c9c1ba;}
+@media (max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
+
+/* ---------- FLOATING WIDGETS ---------- */
+.whatsapp-float{
+  position:fixed;bottom:26px;left:26px;width:58px;height:58px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;z-index:900;
+  box-shadow:0 12px 26px rgba(37,211,102,.4);animation:pulse-btn 2.4s infinite;
+}
+@keyframes pulse-btn{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5);}70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}}
+
+.sticky-actions{position:fixed;bottom:26px;right:26px;display:flex;flex-direction:column;gap:12px;z-index:900;}
+.sticky-actions .btn{box-shadow:var(--shadow-lift);}
+
+#back-to-top{
+  position:fixed;bottom:26px;right:26px;width:50px;height:50px;border-radius:50%;background:var(--primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:899;opacity:0;visibility:hidden;
+  transform:translateY(10px);transition:all .35s var(--ease);
+}
+#back-to-top.show{opacity:1;visibility:visible;transform:translateY(0);}
+
+/* Section divider wave */
+.wave-divider{width:100%;height:60px;display:block;margin-top:-1px;}
+
+.typing-cursor{display:inline-block;width:2px;background:var(--secondary);margin-left:4px;animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:0;}}
+
+@media (max-width:640px){
+  .why-grid,.specials-grid{gap:16px;}
+  .chef-card-body{padding:28px 22px;}
+  .footer-grid{gap:30px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PRELOADER ============ -->
+<div id="preloader" role="status" aria-label="Loading Chronicles Restaurant">
+  <div class="preload-mark"><span>CR</span></div>
+  <p class="preload-text">Turning the page on today's story…</p>
+</div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div id="scroll-progress"></div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="site-header">
+  <div class="container nav-wrap">
+    <a href="#home" class="logo">
+      <span class="logo-mark">CR</span>
+      <span>Chronicles<small>Every Meal Tells A Story</small></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#specials">Specials</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      <a href="#menu" class="btn btn-outline" style="padding:10px 20px;">Order Now</a>
+      <a href="#contact" class="btn btn-primary" style="padding:10px 22px;">Reserve Table</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-backdrop" id="menu-backdrop"></div>
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+  <button class="mm-close" id="mm-close" aria-label="Close menu">✕</button>
+  <a href="#home">Home</a>
+  <a href="#menu">Menu</a>
+  <a href="#specials">Specials</a>
+  <a href="#about">About</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+  <a href="#menu" class="btn btn-primary">Order Now</a>
+  <a href="#contact" class="btn btn-outline">Reserve Table</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="https://picsum.photos/id/292/1600/1000" alt="Chronicles Restaurant signature spread of grilled meats, jollof rice and fresh juice">
+  </div>
+
+  <span class="ingredient ing1">🌶️</span>
+  <span class="ingredient ing2">🍋</span>
+  <span class="ingredient ing3">🌿</span>
+  <span class="ingredient ing4">🍗</span>
+
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-rating">
+        <span class="stars">★★★★★</span> 4.9 Rating · Thousands of Happy Customers
+      </div>
+      <h1>Every Meal<br><em>Tells A Story.</em></h1>
+      <p id="hero-typed">Experience premium Nigerian cuisine, delicious shawarma, hearty breakfasts, fresh juices, and unforgettable dining moments.<span class="typing-cursor"></span></p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">Order Online</a>
+        <a href="#menu" class="btn btn-light">View Menu</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>10+</strong><span>Years of Flavor</span></div>
+        <div><strong>25k+</strong><span>Happy Guests</span></div>
+        <div><strong>100+</strong><span>Menu Chapters</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="chef-badge"><span>Chef's<br>Recommended<br>Today</span></div>
+      <div class="float-card fc1"><img src="https://picsum.photos/id/312/400/500" alt="Grilled catfish plated with peppers"></div>
+      <div class="float-card fc2"><img src="https://picsum.photos/id/1080/300/300" alt="Fresh mixed fruit smoothie"></div>
+      <div class="float-card fc3"><img src="https://picsum.photos/id/1060/240/240" alt="Wrapped shawarma close up"></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Scroll<div class="line"></div></div>
+</section>
+
+<!-- ============ WHY CHOOSE ============ -->
+<section class="why" id="why">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Why Chronicles</p>
+      <h2 class="section-title">Why Guests Choose Us</h2>
+      <p class="section-sub">Four simple promises behind every plate we send out.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🌾</div>
+        <h3>Fresh Ingredients</h3>
+        <p>Sourced daily from trusted local markets for bold, honest flavor.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">👨‍🍳</div>
+        <h3>Prepared Daily</h3>
+        <p>Every pot is cooked fresh each morning — never reheated, never rushed.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🛵</div>
+        <h3>Fast Delivery</h3>
+        <p>Hot meals at your door in record time, across the city.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💰</div>
+        <h3>Affordable Prices</h3>
+        <p>Premium hospitality priced for everyday families and offices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE MENU ============ -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Menu</p>
+      <h2 class="section-title">Chapters Worth Savoring</h2>
+      <p class="section-sub">A taste of our signature dishes — from sunrise breakfasts to fireside grills.</p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="breakfast">Breakfast</button>
+      <button class="filter-btn" data-filter="lunch">Lunch</button>
+      <button class="filter-btn" data-filter="dinner">Dinner</button>
+      <button class="filter-btn" data-filter="grills">Grills</button>
+      <button class="filter-btn" data-filter="drinks">Drinks</button>
+      <button class="filter-btn" data-filter="specials">Specials</button>
+    </div>
+
+    <div class="menu-grid" id="menu-grid">
+      <!-- dish cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ WEEKLY SPECIALS ============ -->
+<section class="specials" id="specials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Limited Time</p>
+      <h2 class="section-title">Weekly Specials</h2>
+      <p class="section-sub">Fresh chapters added every week — grab them before the story moves on.</p>
+    </div>
+    <div class="specials-grid">
+      <div class="special-card reveal">
+        <span class="discount-badge">-20%</span>
+        <img src="https://picsum.photos/id/225/400/500" alt="Breakfast combo plate">
+        <div class="special-content">
+          <h3>Breakfast Combo</h3>
+          <p>Eggs, plantain, sausage &amp; fresh juice.</p>
+          <div class="countdown" data-countdown="86400"></div>
+          <a href="#contact" class="btn btn-light" style="padding:10px 20px;font-size:.82rem;">Claim Offer</a>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <span class="discount-badge">-15%</span>
+        <img src="https://picsum.photos/id/1080/400/500" alt="Shawarma wrap special">
+        <div class="special-content">
+          <h3>Shawarma Week</h3>
+          <p>Buy 2 shawarma wraps, get a drink free.</p>
+          <div class="countdown" data-countdown="172800"></div>
+          <a href="#contact" class="btn btn-light" style="padding:10px 20px;font-size:.82rem;">Claim Offer</a>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <span class="discount-badge">-25%</span>
+        <img src="https://picsum.photos/id/292/400/500" alt="Family combo meal">
+        <div class="special-content">
+          <h3>Family Combo</h3>
+          <p>Feeds 4 — jollof, chicken, salad &amp; drinks.</p>
+          <div class="countdown" data-countdown="259200"></div>
+          <a href="#contact" class="btn btn-light" style="padding:10px 20px;font-size:.82rem;">Claim Offer</a>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <span class="discount-badge">-10%</span>
+        <img src="https://picsum.photos/id/312/400/500" alt="Weekend grill special">
+        <div class="special-content">
+          <h3>Weekend Grill</h3>
+          <p>Assorted grilled meats with pepper sauce.</p>
+          <div class="countdown" data-countdown="345600"></div>
+          <a href="#contact" class="btn btn-light" style="padding:10px 20px;font-size:.82rem;">Claim Offer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-media reveal-scale">
+      <img src="https://picsum.photos/id/431/700/700" alt="Interior of Chronicles Restaurant dining hall">
+      <div class="about-stamp"><span>Est.<br>Nigerian<br>Hospitality</span></div>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Our Story</p>
+      <h2 class="section-title">About Chronicles</h2>
+      <p>Chronicles Restaurant is passionate about serving delicious meals with exceptional customer service in a welcoming environment for individuals, families, and corporate clients.</p>
+      <p>Every recipe on our menu is a chapter we've perfected over the years — built on quality ingredients, professional hospitality, and prices that keep the story affordable for everyone who walks through our doors.</p>
+      <ul class="about-points">
+        <li>Family Friendly</li>
+        <li>Corporate Catering</li>
+        <li>Dine-in &amp; Takeaway</li>
+        <li>Same-Day Delivery</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATISTICS ============ -->
+<section class="stats" id="stats">
+  <div class="container stats-grid">
+    <div class="stat"><h3 data-count="10" data-suffix="+">0</h3><p>Years Experience</p></div>
+    <div class="stat"><h3 data-count="25000" data-suffix="+">0</h3><p>Happy Customers</p></div>
+    <div class="stat"><h3 data-count="100" data-suffix="+">0</h3><p>Menu Items</p></div>
+    <div class="stat"><h3 data-count="4.9" data-suffix="★" data-decimal="1">0</h3><p>Customer Rating</p></div>
+  </div>
+</section>
+
+<!-- ============ ORDERING PROCESS ============ -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2 class="section-title">From Craving To Table In Four Steps</h2>
+    </div>
+    <div class="process-track">
+      <div class="step reveal"><div class="step-num">1</div><h4>Choose Meal</h4><p>Browse our chapters and pick your favorites.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h4>Place Order</h4><p>Order online, by phone, or walk right in.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h4>Fast Preparation</h4><p>Cooked fresh by our kitchen, right on time.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h4>Enjoy</h4><p>Dine in, take away, or have it delivered hot.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHEF RECOMMENDATION ============ -->
+<section class="chef-rec">
+  <div class="container">
+    <div class="chef-card reveal">
+      <div class="chef-card-img">
+        <span class="chef-ribbon">Chef's Pick</span>
+        <img src="https://picsum.photos/id/1080/700/700" alt="Chef's recommended dish of the day">
+      </div>
+      <div class="chef-card-body">
+        <p class="eyebrow">Today's Chapter</p>
+        <h3>Village Rice &amp; Grilled Catfish</h3>
+        <p>Smoky village rice slow-cooked over an open flame, paired with peppered catfish and a citrus-chili relish — the dish our regulars keep coming back for.</p>
+        <div class="chef-price">₦6,500</div>
+        <a href="#contact" class="btn btn-primary" style="align-self:flex-start;">Order This Dish</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Behind The Story</p>
+      <h2 class="section-title">Gallery</h2>
+    </div>
+    <div class="masonry" id="masonry">
+      <!-- images injected by JS -->
+    </div>
+  </div>
+</section>
+
+<div id="lightbox"><button class="lb-close" aria-label="Close preview">✕</button><img id="lightbox-img" src="" alt="Enlarged gallery preview"></div>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Guest Reviews</p>
+      <h2 class="section-title">What Our Guests Are Saying</h2>
+    </div>
+    <div class="t-track-wrap">
+      <div class="t-track" id="t-track">
+        <div class="t-slide">
+          <div class="t-card"><div class="stars">★★★★★</div><p>"The jollof rice tastes exactly like home. Chronicles has become our Sunday tradition."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=32" alt="Portrait of Amaka O."><div><strong>Amaka O.</strong><span>Regular Guest</span></div></div></div>
+          <div class="t-card"><div class="stars">★★★★★</div><p>"Fast delivery, generous portions, and the shawarma is the best I've had in the city."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=15" alt="Portrait of Tunde A."><div><strong>Tunde A.</strong><span>Office Worker</span></div></div></div>
+          <div class="t-card"><div class="stars">★★★★★</div><p>"We used Chronicles for our office catering and every plate came back empty. Booking again."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=47" alt="Portrait of Ifeoma K."><div><strong>Ifeoma K.</strong><span>Corporate Client</span></div></div></div>
+        </div>
+        <div class="t-slide">
+          <div class="t-card"><div class="stars">★★★★★</div><p>"Warm staff, beautiful space, and the breakfast combo is worth waking up early for."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=5" alt="Portrait of David E."><div><strong>David E.</strong><span>Weekend Regular</span></div></div></div>
+          <div class="t-card"><div class="stars">★★★★★</div><p>"Every visit feels like a celebration. My kids ask for Chronicles by name now."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=25" alt="Portrait of Blessing N."><div><strong>Blessing N.</strong><span>Parent</span></div></div></div>
+          <div class="t-card"><div class="stars">★★★★★</div><p>"Affordable, generous, and always fresh. This is our family's go-to spot."</p><div class="t-person"><img src="https://i.pravatar.cc/80?img=68" alt="Portrait of Samuel I."><div><strong>Samuel I.</strong><span>Family Guest</span></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="t-dots" id="t-dots"></div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Questions</p>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Do you offer delivery? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — we deliver across the city with fast, hot delivery on every order placed through our online menu or phone line.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I reserve a table? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Absolutely. Use the Reserve Table button or the contact form below and our team will confirm your booking shortly after.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you cater events? <span class="plus">+</span></button>
+        <div class="faq-a"><p>We handle corporate catering and family events of all sizes — from small office lunches to full celebrations.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you serve breakfast? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes, our breakfast menu opens early and includes combos, fresh juice, and local favorites to start the day right.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">Get In Touch</p>
+      <h2 class="section-title">Visit Or Reach Us</h2>
+    </div>
+    <div class="contact-grid">
+      <form class="contact-form reveal" id="contact-form">
+        <div class="field"><label for="cf-name">Name</label><input id="cf-name" type="text" placeholder="Your full name" required></div>
+        <div class="field"><label for="cf-phone">Phone</label><input id="cf-phone" type="tel" placeholder="Your phone number" required></div>
+        <div class="field"><label for="cf-email">Email</label><input id="cf-email" type="email" placeholder="you@example.com" required></div>
+        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" rows="4" placeholder="Tell us how we can help" required></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+      </form>
+
+      <div class="contact-info reveal">
+        <div class="info-card">
+          <div class="info-icon">🕒</div>
+          <div><h4>Opening Hours</h4><p>Mon – Sat: 7:00 AM – 10:00 PM<br>Sunday: 9:00 AM – 9:00 PM</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📞</div>
+          <div><h4>Phone &amp; WhatsApp</h4><p>+234 800 000 0000</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">✉️</div>
+          <div><h4>Email</h4><p>hello@chroniclesrestaurant.com</p></div>
+        </div>
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div><h4>Address</h4><p>12 Chronicle Avenue, Lagos, Nigeria</p></div>
+        </div>
+        <div class="map-embed">Map placeholder — embed Google Map here</div>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitter / X">🐦</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter">
+  <div class="container">
+    <h2>Join The Chronicles Table</h2>
+    <p>Get new chapters, specials, and event invites straight to your inbox.</p>
+    <form class="news-form" id="news-form">
+      <input type="email" placeholder="Enter your email" required aria-label="Email address">
+      <button type="submit" class="btn btn-light">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM FEED ============ -->
+<section class="insta">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">@ChroniclesRestaurant</p>
+      <h2 class="section-title">Follow Our Story</h2>
+    </div>
+    <div class="insta-grid" id="insta-grid"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="logo-mark">CR</span> Chronicles</div>
+        <p>Delicious meals, exceptional service, and memorable dining moments — one chapter at a time.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="Twitter / X">🐦</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#specials">Specials</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul>
+          <li>Mon – Sat: 7am – 10pm</li>
+          <li>Sunday: 9am – 9pm</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Fresh chapters, delivered weekly.</p>
+        <form class="news-form" style="justify-content:flex-start;" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Subscribed! Welcome to Chronicles.');">
+          <input type="email" placeholder="Email address" required style="border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;">
+          <button type="submit" class="btn btn-primary" style="padding:12px 20px;">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Chronicles Restaurant. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WIDGETS ============ -->
+<a href="https://wa.me/2348000000000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+<div class="sticky-actions">
+  <button id="back-to-top" aria-label="Back to top">↑</button>
+</div>
+
+<script>
+/* ============================================
+   PRELOADER
+   ============================================ */
+window.addEventListener('load', () => {
+  const pre = document.getElementById('preloader');
+  setTimeout(() => pre.classList.add('hide'), 500);
+});
+
+/* ============================================
+   SCROLL PROGRESS + NAVBAR SHRINK + BACK TO TOP
+   ============================================ */
+const header = document.getElementById('site-header');
+const progress = document.getElementById('scroll-progress');
+const backToTop = document.getElementById('back-to-top');
+
+function onScroll(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = (docHeight > 0 ? (scrollTop/docHeight)*100 : 0) + '%';
+  header.classList.toggle('scrolled', scrollTop > 60);
+  backToTop.classList.toggle('show', scrollTop > 500);
+
+  // active nav link
+  const sections = document.querySelectorAll('section[id]');
+  let current = '';
+  sections.forEach(sec=>{
+    const top = sec.offsetTop - 140;
+    if(scrollTop >= top) current = sec.getAttribute('id');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+  });
+}
+document.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ============================================
+   MOBILE MENU
+   ============================================ */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuBackdrop = document.getElementById('menu-backdrop');
+const mmClose = document.getElementById('mm-close');
+
+function openMenu(){ mobileMenu.classList.add('open'); menuBackdrop.classList.add('open'); hamburger.setAttribute('aria-expanded','true'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuBackdrop.classList.remove('open'); hamburger.setAttribute('aria-expanded','false'); }
+hamburger.addEventListener('click', openMenu);
+mmClose.addEventListener('click', closeMenu);
+menuBackdrop.addEventListener('click', closeMenu);
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMenu));
+
+/* ============================================
+   DARK MODE TOGGLE
+   ============================================ */
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', ()=>{
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  themeToggle.textContent = isDark ? '🌙' : '☀️';
+});
+
+/* ============================================
+   RIPPLE ON BUTTONS
+   ============================================ */
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('click', function(e){
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className='ripple';
+    ripple.style.left = (e.clientX-rect.left)+'px';
+    ripple.style.top = (e.clientY-rect.top)+'px';
+    ripple.style.width = ripple.style.height = Math.max(rect.width,rect.height)+'px';
+    this.appendChild(ripple);
+    setTimeout(()=>ripple.remove(),650);
+  });
+});
+
+/* ============================================
+   SCROLL REVEAL (Intersection Observer)
+   ============================================ */
+const revealObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal, .reveal-scale').forEach(el=>revealObserver.observe(el));
+
+/* ============================================
+   MENU DATA + RENDER + FILTER
+   ============================================ */
+const dishes = [
+  {name:"Sunrise Breakfast Plate", cat:"breakfast", chapter:"Ch. 01", desc:"Eggs, plantain, sausage & toast.", price:"₦2,500", img:"https://picsum.photos/id/225/400/300"},
+  {name:"Chicken Shawarma Wrap", cat:"lunch", chapter:"Ch. 02", desc:"Grilled chicken, garlic sauce & fresh veg.", price:"₦3,000", img:"https://picsum.photos/id/1080/400/300"},
+  {name:"Classic Party Jollof", cat:"lunch", chapter:"Ch. 03", desc:"Smoky jollof rice with fried plantain.", price:"₦3,500", img:"https://picsum.photos/id/292/400/300"},
+  {name:"Village Rice Special", cat:"dinner", chapter:"Ch. 04", desc:"Slow-cooked rice, native spices & fish.", price:"₦4,000", img:"https://picsum.photos/id/312/400/300"},
+  {name:"Signature Fried Rice", cat:"lunch", chapter:"Ch. 05", desc:"Vegetable-loaded fried rice, chef's blend.", price:"₦3,200", img:"https://picsum.photos/id/365/400/300"},
+  {name:"Fire-Grilled Chicken", cat:"grills", chapter:"Ch. 06", desc:"Charcoal grilled chicken, pepper glaze.", price:"₦4,500", img:"https://picsum.photos/id/1080/400/301"},
+  {name:"Peppered Turkey", cat:"grills", chapter:"Ch. 07", desc:"Juicy turkey in a smoky pepper sauce.", price:"₦5,000", img:"https://picsum.photos/id/1069/400/300"},
+  {name:"Grilled Catfish", cat:"grills", chapter:"Ch. 08", desc:"Whole catfish, citrus-chili relish.", price:"₦6,000", img:"https://picsum.photos/id/312/400/301"},
+  {name:"Tropical Smoothie", cat:"drinks", chapter:"Ch. 09", desc:"Mango, pineapple & passionfruit blend.", price:"₦1,800", img:"https://picsum.photos/id/1060/400/300"},
+  {name:"Fresh Watermelon Juice", cat:"drinks", chapter:"Ch. 10", desc:"Chilled, freshly pressed watermelon.", price:"₦1,500", img:"https://picsum.photos/id/431/400/300"},
+  {name:"Weekend Grill Platter", cat:"specials", chapter:"Ch. 11", desc:"Assorted grilled meats to share.", price:"₦8,000", img:"https://picsum.photos/id/225/400/301"},
+  {name:"Family Feast Combo", cat:"specials", chapter:"Ch. 12", desc:"Jollof, chicken, salad & drinks for 4.", price:"₦12,000", img:"https://picsum.photos/id/292/400/301"},
+];
+
+const menuGrid = document.getElementById('menu-grid');
+menuGrid.innerHTML = dishes.map((d,i)=>`
+  <div class="dish-card reveal" data-cat="${d.cat}">
+    <div class="dish-media">
+      <img src="${d.img}" alt="${d.name}" loading="lazy">
+      <span class="dish-chapter">${d.chapter}</span>
+      <button class="fav-icon" aria-label="Save ${d.name} to favorites" onclick="this.classList.toggle('active'); this.textContent=this.classList.contains('active')?'♥':'♡';">♡</button>
+    </div>
+    <div class="dish-body">
+      <h3>${d.name}</h3>
+      <p>${d.desc}</p>
+      <div class="dish-foot">
+        <span class="dish-price">${d.price}</span>
+        <a href="#contact" class="dish-order">Order</a>
+      </div>
+    </div>
+  </div>
+`).join('');
+menuGrid.querySelectorAll('.dish-card').forEach(el=>revealObserver.observe(el));
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.dish-card').forEach(card=>{
+      const show = filter==='all' || card.dataset.cat===filter;
+      card.classList.toggle('hidden-cat', !show);
+    });
+  });
+});
+
+/* ============================================
+   COUNTDOWN TIMERS
+   ============================================ */
+document.querySelectorAll('[data-countdown]').forEach(el=>{
+  let remaining = parseInt(el.dataset.countdown,10);
+  function render(){
+    const d = Math.floor(remaining/86400);
+    const h = Math.floor((remaining%86400)/3600);
+    const m = Math.floor((remaining%3600)/60);
+    const s = remaining%60;
+    el.innerHTML = `
+      <div><span>${String(h+d*24).padStart(2,'0')}</span><small>Hrs</small></div>
+      <div><span>${String(m).padStart(2,'0')}</span><small>Min</small></div>
+      <div><span>${String(s).padStart(2,'0')}</span><small>Sec</small></div>`;
+  }
+  render();
+  setInterval(()=>{ if(remaining>0){remaining--; render();} }, 1000);
+});
+
+/* ============================================
+   ANIMATED COUNTERS
+   ============================================ */
+const statObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = parseFloat(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal || '0',10);
+      const duration = 1600;
+      const startTime = performance.now();
+      function tick(now){
+        const progress = Math.min((now-startTime)/duration, 1);
+        const eased = 1 - Math.pow(1-progress, 3);
+        const value = target*eased;
+        el.textContent = (decimal ? value.toFixed(decimal) : Math.floor(value).toLocaleString()) + suffix;
+        if(progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      statObserver.unobserve(el);
+    }
+  });
+},{threshold:0.4});
+document.querySelectorAll('[data-count]').forEach(el=>statObserver.observe(el));
+
+/* ============================================
+   GALLERY MASONRY + LIGHTBOX
+   ============================================ */
+const galleryImgs = [292,431,312,1060,1080,225,365,1069,60,42,1074,1004];
+const masonry = document.getElementById('masonry');
+masonry.innerHTML = galleryImgs.map((id,i)=>`
+  <div class="masonry-item" data-full="https://picsum.photos/id/${id}/900/${600+(i%3)*100}">
+    <img src="https://picsum.photos/id/${id}/450/${300+(i%3)*60}" alt="Chronicles Restaurant gallery photo ${i+1}" loading="lazy">
+  </div>
+`).join('');
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+masonry.querySelectorAll('.masonry-item').forEach(item=>{
+  item.addEventListener('click', ()=>{
+    lightboxImg.src = item.dataset.full;
+    lightbox.classList.add('open');
+  });
+});
+document.querySelector('.lb-close').addEventListener('click', ()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.remove('open'); });
+
+/* ============================================
+   INSTAGRAM FEED PLACEHOLDER
+   ============================================ */
+const instaImgs = [1080,225,292,312,1060,365];
+document.getElementById('insta-grid').innerHTML = instaImgs.map(id=>`
+  <a href="#" class="insta-item"><img src="https://picsum.photos/id/${id}/300/300" alt="Instagram post preview" loading="lazy"></a>
+`).join('');
+
+/* ============================================
+   TESTIMONIAL CAROUSEL (auto-slide)
+   ============================================ */
+const track = document.getElementById('t-track');
+const slides = track.children.length;
+const dotsWrap = document.getElementById('t-dots');
+let current = 0;
+for(let i=0;i<slides;i++){
+  const dot = document.createElement('button');
+  if(i===0) dot.classList.add('active');
+  dot.addEventListener('click', ()=>goTo(i));
+  dotsWrap.appendChild(dot);
+}
+function goTo(i){
+  current = i;
+  track.style.transform = `translateX(-${i*100}%)`;
+  [...dotsWrap.children].forEach((d,idx)=>d.classList.toggle('active', idx===i));
+}
+let autoSlide = setInterval(()=> goTo((current+1)%slides), 5000);
+track.addEventListener('mouseenter', ()=>clearInterval(autoSlide));
+track.addEventListener('mouseleave', ()=> autoSlide = setInterval(()=> goTo((current+1)%slides), 5000));
+
+/* ============================================
+   FAQ ACCORDION
+   ============================================ */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{ i.classList.remove('open'); i.querySelector('.faq-a').style.maxHeight=null; });
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; }
+  });
+});
+
+/* ============================================
+   CONTACT + NEWSLETTER FORM (front-end only)
+   ============================================ */
+document.getElementById('contact-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.reset();
+  alert('Thank you! Your message has been received — we will reply shortly.');
+});
+document.getElementById('news-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.reset();
+  alert('Subscribed! Welcome to the Chronicles table.');
+});
+
+/* ============================================
+   FOOTER YEAR
+   ============================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
